@@ -32,6 +32,10 @@
 extern GType gnome_shell_plugin_get_type (void);
 
 #define SHELL_DBUS_SERVICE "org.gnome.Shell"
+#define SHELL_KEY_GRABBER_DBUS_SERVICE "org.gnome.Shell.KeyGrabber"
+#define SHELL_OSD_DBUS_SERVICE "org.gnome.Shell.OSD"
+#define SHELL_SCREENCAST_DBUS_SERVICE "org.gnome.Shell.Screencast"
+#define SHELL_SCREENSHOT_DBUS_SERVICE "org.gnome.Shell.Screenshot"
 #define MAGNIFIER_DBUS_SERVICE "org.gnome.Magnifier"
 
 #define OVERRIDES_SCHEMA "org.gnome.shell.overrides"
@@ -159,6 +163,10 @@ shell_dbus_init (gboolean replace)
                             MAGNIFIER_DBUS_SERVICE, FALSE,
   /* ...and the org.freedesktop.Notifications service. */
                             "org.freedesktop.Notifications", FALSE,
+                            SHELL_KEY_GRABBER_DBUS_SERVICE, TRUE,
+                            SHELL_OSD_DBUS_SERVICE, TRUE,
+                            SHELL_SCREENCAST_DBUS_SERVICE, TRUE,
+                            SHELL_SCREENSHOT_DBUS_SERVICE, TRUE,
                             NULL);
   /* ...and the on-screen keyboard service */
   shell_dbus_acquire_name (bus,
